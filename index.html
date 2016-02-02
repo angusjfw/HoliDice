@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" ng-app="holiDiceSearch">
+  <head>
+    <meta charset="utf-8">
+    <title>HoliDice</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/app.js"></script>
+    <script src="js/holiDiceController.js"></script>
+
+  </head>
+
+  <body ng-controller="HoliDiceController as searchCtrl">
+    <div>
+      <h1>HoliDice</h1>
+      <form class="form-horizontal" id="input-form">
+
+        <input type="text" value="Where do you want to fly to?" class="input-box"><br>
+        <input type="text" value="Where do you want to fly from?" class="input-box"><br>
+        <input type="text" value="When do you want to leave?" class="input-box"><br>
+        <button class="btn">Find</button>
+      </form>
+      <ul>
+        <li></li>
+      <ul>
+    </div>
+  </body>
+</html>

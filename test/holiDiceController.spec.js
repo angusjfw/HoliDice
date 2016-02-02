@@ -2,13 +2,12 @@ describe('HoliDiceController', function() {
   beforeEach(module('HoliDice'));
 
   var ctrl;
-
   beforeEach(inject(function($controller) {
     ctrl = $controller('HoliDiceController');
   }));
 
   it('initialises with an empty search result', function() {
-    expect(ctrl.searchResult).toBeUndefined();
+    expect(ctrl.flightResults).toBeUndefined();
   });
 
   describe('when searching for a holdiay', function() {
@@ -23,7 +22,7 @@ describe('HoliDiceController', function() {
 
     it('displays search results', function() {
       ctrl.doSearch();
-      expect(ctrl.searchResult.items).toEqual(items);
+      expect(ctrl.flightResults.items).toEqual(items);
     });
   });
 });

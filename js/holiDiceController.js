@@ -3,7 +3,7 @@ holiDice.controller('HoliDiceController', ['$resource', function($resource) {
 var self = this;
 
   self.doSearch = function (){
-    self.searchResult = {
+    self.flightResults = {
       "items": [
         {
           "origin": "LHR",

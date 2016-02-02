@@ -1,10 +1,10 @@
-describe('holiDiceController', function() {
+describe('HoliDiceController', function() {
   beforeEach(module('HoliDice'));
 
   var ctrl;
 
   beforeEach(inject(function($controller) {
-    ctrl = $controller('holiDiceController');
+    ctrl = $controller('HoliDiceController');
   }));
 
   it('initialises with an empty search result', function() {
@@ -22,6 +22,7 @@ describe('holiDiceController', function() {
     ];
 
     it('displays search results', function() {
+      ctrl.doSearch();
       expect(ctrl.searchResult.items).toEqual(items);
     });
   });

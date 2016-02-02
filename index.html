@@ -18,10 +18,11 @@
       <h1>HoliDice</h1>
       <form class="form-horizontal" id="input-form">
 
-        <input type="text" value="Where do you want to fly to?" class="input-box"><br>
+        <input type="text" value="Where do you want to fly to?" ng-model="searchCtrl.searchTerm" class="input-box"><br>
         <input type="text" value="Where do you want to fly from?" class="input-box"><br>
         <input type="text" value="When do you want to leave?" class="input-box"><br>
-        <button class="btn">Find</button>
+        <button class="btn" ng-click="searchCtrl.doSearch()">Find</button>
+
       </form>
       <ul>
         <li></li>

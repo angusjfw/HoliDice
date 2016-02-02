@@ -1,15 +1,14 @@
-holiDice.controller('HoliDiceController', ['$resource', function($resource) {
-
-var self = this;
+holiDice.controller('HoliDiceController', ['FlightSearch', function(FlightSearch) {
+  var self = this;
 
   self.doSearch = function (){
     self.flightResults = {
       "items": [
-        {
-          "origin": "LHR",
-          "destination": "BOS",
-          "date": "2016-02-04"
-        }
+      {
+        "origin": "LHR",
+        "destination": "BOS",
+        "date": "2016-02-04"
+      }
       ]
     };
   };

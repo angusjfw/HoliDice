@@ -1,1 +1,1 @@
-var holiDice = angular.module('HoliDice', ['ngResource']);
+var holiDice = angular.module('HoliDice', []);

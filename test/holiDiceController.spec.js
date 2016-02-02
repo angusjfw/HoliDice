@@ -6,7 +6,7 @@ describe('HoliDiceController', function() {
     ctrl = $controller('HoliDiceController');
   }));
 
-  it('initialises with an empty search result', function() {
+  it('initialises with empty search results', function() {
     expect(ctrl.flightResults).toBeUndefined();
   });
 

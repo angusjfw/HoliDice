@@ -1,4 +1,4 @@
-holiDiceSearch.controller('HoliDiceController', ['$resource', function($resource) {
+holiDice.controller('HoliDiceController', ['$resource', function($resource) {
 
 var self = this;
 

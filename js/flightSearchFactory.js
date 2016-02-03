@@ -1,9 +1,9 @@
 holiDice.factory('FlightSearch', ['$http', function($http) {
   var queryUrl = 'https://www.googleapis.com/qpxExpress/v1/trips/search?key=';
-  var apiKey = 'AIzaSyB3fv8tKKcTkkqBmZf-r5TY4EmwZzNYW-E';
+  var apiKey = 'AIzaSyDr4_s3BeG9N6tjU311U_KX99buLq5PcHk';
 
   return {
-    query: function(startLocation, holidayLocation) {
+    query: function(startLocation, holidayLocation, depDate, returnDate) {
       return $http.post(
         queryUrl + apiKey,
         {
@@ -11,8 +11,14 @@ holiDice.factory('FlightSearch', ['$http', function($http) {
             "slice": [
               {
                 "origin": startLocation,
-                "destination": holidayLocation,
-                "date": "2016-02-10",
+                "destination": "LAX",
+                "date": depDate,
+                "maxConnectionDuration": 0
+              },
+              {
+                "origin": "LAX",
+                "destination": startLocation,
+                "date": returnDate,
                 "maxConnectionDuration": 0
               }
             ],
@@ -24,6 +30,7 @@ holiDice.factory('FlightSearch', ['$http', function($http) {
               "seniorCount": 0
             },
             "solutions": 1,
+            "saleCountry": "GB",
             "refundable": false
           }
         }

@@ -24,10 +24,12 @@
         ng-model="HDCtrl.startLocation" />
       <br>
       <input type="text" class="input-box"
-        placeholder="When do you want to leave?" />
+        placeholder="When do you want to leave?"
+        ng-model="HDCtrl.depDate" />
       <br>
       <input type="text" class="input-box"
-        placeholder="When do you want to return?" />
+        placeholder="When do you want to return?"
+        ng-model="HDCtrl.returnDate" />
       <br>
       <button class="btn" ng-click="HDCtrl.doSearch()">Find</button>
     </form>
@@ -35,5 +37,10 @@
     <p data-ng-bind="HDCtrl.flightResults.data.airport[0].name"></p>
     <p>To:</p>
     <p data-ng-bind="HDCtrl.flightResults.data.airport[1].name"></p>
+    <br>
+    <p>Carrier: <span data-ng-bind="HDCtrl.flightResults.data.carrier[0].name"></span></p>
+    <p>Flight Number: <span data-ng-bind="HDCtrl.flightResults.tripOption[0].slice[0].segment[0].flight.number"></span></p>
+    <p>Price: <span data-ng-bind="HDCtrl.flightResults.tripOption[0].saleTotal"></span></p>
+    <p>Departure Time: <span data-ng-bind="HDCtrl.flightResults.tripOption[0].slice[0].segment[0].leg[0].departureTime"></span></p>
   </body>
 </html>

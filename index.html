@@ -24,7 +24,8 @@
         ng-model="HDCtrl.startLocation" />
       <br>
       <input type="text" class="input-box"
-        placeholder="Where do you want to fly from?" />
+        placeholder="Where do you want to fly from?"
+        ng-model="HDCtrl.holidayLocation" />
       <br>
       <input type="text" class="input-box"
         placeholder="When do you want to leave?" />
@@ -33,5 +34,7 @@
     </form>
 
     <p data-ng-bind="HDCtrl.flightResults.data.airport[0].name"></p>
+    <p>To:</p>
+    <p data-ng-bind="HDCtrl.flightResults.data.airport[1].name"></p>
   </body>
 </html>

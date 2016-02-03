@@ -1,4 +1,4 @@
-airportIATAs = [
+var airportIATAs = [
 "UTK",
 "FIV",
 "FAK",

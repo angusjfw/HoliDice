@@ -25,27 +25,43 @@ describe('HoliDiceController', function() {
 
       beforeEach(function(){
 	module(function ($provide) {
+	  fakeRandomAirport = jasmine.createSpyObj('randomAirport', ['query']);
+	  $provide.factory('RandomAirport', function(){
+	    return fakeRandomAirport;
+	  });
+
 	  fakeFlightSearch = jasmine.createSpyObj('flightSearch', ['query']);
 	  $provide.factory('FlightSearch', function(){
 	    return fakeFlightSearch;
 	  });
 
-	  fakeRandomAirport = jasmine.createSpyObj('randomAirport', ['query']);
-	  $provide.factory('RandomAirport', function(){
-	    return fakeRandomAirport;
+	  fakeResultsFactory = jasmine.createSpyObj('resultsFactory', [
+            'outboundName', 'inboundName', 'price', 'flightNumber',
+            'departureTime', 'carrierName'
+          ]);
+	  $provide.factory('ResultsFactory', function(){
+	    return fakeResultsFactory;
 	  });
 	});
       });
 
       beforeEach(inject(function ($q, $rootScope) {
         scope = $rootScope;
-        fakeFlightSearch.query.and.returnValue($q.when(fakeData));
         fakeRandomAirport.query.and.returnValue("UTK");
+        fakeFlightSearch.query.and.returnValue($q.when(fakeData));
       }));
 
       beforeEach(inject(function($controller) {
         ctrl = $controller('HoliDiceController');
       }));
+
+      it('calls randomAirport#query function and sets destination', function() {
+        ctrl.startingLocation = 'LHR';
+        ctrl.doSearch();
+        scope.$apply();
+        expect(fakeRandomAirport.query.calls.any()).toEqual(true);
+        expect(ctrl.holidayLocation).toEqual("UTK");
+      });
 
       it('calls flightSerachFactory#query function', function() {
         ctrl.startingLocation = 'LHR';
@@ -53,14 +69,6 @@ describe('HoliDiceController', function() {
         scope.$apply();
         expect(fakeFlightSearch.query.calls.any()).toEqual(true);
         expect(ctrl.flightResults).toEqual(fakeData.data.trips);
-      });
-
-      it('calls randomAirportFactory#query function', function() {
-        ctrl.startingLocation = 'LHR';
-        ctrl.doSearch();
-        scope.$apply();
-        expect(fakeRandomAirport.query.calls.any()).toEqual(true);
-        expect(ctrl.holidayLocation).toEqual("UTK");
       });
     });
   });

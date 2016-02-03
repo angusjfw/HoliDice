@@ -32,9 +32,6 @@
       <button class="btn" ng-click="HDCtrl.doSearch()">Find</button>
     </form>
 
-    <ul>
-      <li ng-repeat="flight in HDCtrl.flightResults">
-      </li>
-    </ul>
+    <p data-ng-bind="HDCtrl.flightResults.data.airport[0].name"></p>
   </body>
 </html>

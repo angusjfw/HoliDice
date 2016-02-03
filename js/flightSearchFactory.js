@@ -1,6 +1,7 @@
 holiDice.factory('FlightSearch', ['$http', function($http) {
-  var queryUrl = 'https://www.googleapis.com/qpxExpress/v1/trips/search\?key\='
-  var apiKey = 'AIzaSyDDdyHFQrTHYRGlfZGNqOnR6vC9PkdKFpQ'
+  var queryUrl = 'https://www.googleapis.com/qpxExpress/v1/trips/search\?key\=';
+  var apiKey = 'AIzaSyDDdyHFQrTHYRGlfZGNqOnR6vC9PkdKFpQ';
+
   return {
     query: function(startingLocation, holidayLocation) {
       return $http.post(
@@ -28,5 +29,5 @@ holiDice.factory('FlightSearch', ['$http', function($http) {
         }
       );
     }
-  }
+  };
 }]);

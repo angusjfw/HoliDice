@@ -13,10 +13,14 @@ describe('HoliDiceController', function() {
     describe('#doSearch', function() {
 
       var ctrl, fakeFlightSearch, scope;
-      var fakeData =     {
-        "origin": "LHR",
-        "destination": "BOS",
-        "date": "2016-02-04"
+      var fakeData = {
+        'data': {
+          'trips' : {
+            "origin": "LHR",
+            "destination": "BOS",
+            "date": "2016-02-04"
+          }
+        }
       };
 
       beforeEach(function(){

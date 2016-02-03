@@ -18,7 +18,10 @@ describe('factory: FlightSearch', function() {
     };
 
     it('returns flight data', function() {
-      expect(flightSearch.query()).toEqual(expectedResult);
+      flightSearch.query('BOS', 'LAX')
+      .then(fuction(response) {
+        expect(response.data.trips).toEqual(expectedResult);
+      });
     });
   });
 });

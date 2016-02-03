@@ -7,24 +7,23 @@ holiDice.factory('FlightSearch', ['$http', function($http) {
         queryUrl + apiKey,
         {
           "request": {
-            "passengers": {
-              "adultCount": 1
-            },
             "slice": [
               {
-                "origin": 'BOS',
-                "destination": 'LAX',
+                "origin": "BOS",
+                "destination": "LAX",
                 "date": "2016-02-10",
-                "maxConnectionDuration": 0
-              },
-              {
-                "origin": 'LAX',
-                "destination": 'BOS',
-                "date": "2016-02-12",
                 "maxConnectionDuration": 0
               }
             ],
-            "solutons": 1
+            "passengers": {
+              "adultCount": 1,
+              "infantInLapCount": 0,
+              "infantInSeatCount": 0,
+              "childCount": 0,
+              "seniorCount": 0
+            },
+            "solutions": 1,
+            "refundable": false
           }
         }
       );

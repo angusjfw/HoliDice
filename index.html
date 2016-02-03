@@ -13,6 +13,7 @@
     <script src="js/app.js"></script>
     <script src="js/holiDiceController.js"></script>
     <script src="js/flightSearchFactory.js"></script>
+    <script src="js/resultsFactory.js"></script>
     <script src="js/randomAirportFactory.js"></script>
     <script src="js/airportIATAs.js"></script>
 
@@ -27,16 +28,23 @@
         ng-model="HDCtrl.startLocation" />
       <br>
       <input type="text" class="input-box"
-        placeholder="When do you want to leave?" />
+        placeholder="When do you want to leave?"
+        ng-model="HDCtrl.depDate" />
       <br>
       <input type="text" class="input-box"
-        placeholder="When do you want to return?" />
+        placeholder="When do you want to return?"
+        ng-model="HDCtrl.returnDate" />
       <br>
       <button class="btn" ng-click="HDCtrl.doSearch()">Find</button>
     </form>
 
-    <p data-ng-bind="HDCtrl.flightResults.data.airport[0].name"></p>
+    <p data-ng-bind="HDCtrl.outboundName"></p>
     <p>To:</p>
-    <p data-ng-bind="HDCtrl.flightResults.data.airport[1].name"></p>
+    <p data-ng-bind="HDCtrl.inboundName"></p>
+    <br>
+    <p>Carrier: <span data-ng-bind="HDCtrl.carrierName"></span></p>
+    <p>Flight Number: <span data-ng-bind="HDCtrl.flightNumber"></span></p>
+    <p>Price: <span data-ng-bind="HDCtrl.price"></span></p>
+    <p>Departure Time: <span data-ng-bind="HDCtrl.departureTime"></span></p>
   </body>
 </html>

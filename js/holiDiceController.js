@@ -1,4 +1,4 @@
-holiDice.controller('HoliDiceController', ['FlightSearch', function(FlightSearch) {
+holiDice.controller('HoliDiceController', ['FlightSearch', 'RandomAirport', function(FlightSearch, RandomAirport) {
   var self = this;
 
   self.startLocation = '';

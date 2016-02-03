@@ -20,15 +20,14 @@
     <form class="form-horizontal" id="input-form">
 
       <input type="text" class="input-box"
-        placeholder="Where do you want to fly to?"
+        placeholder="Where do you want to fly from?"
         ng-model="HDCtrl.startLocation" />
       <br>
       <input type="text" class="input-box"
-        placeholder="Where do you want to fly from?"
-        ng-model="HDCtrl.holidayLocation" />
+        placeholder="When do you want to leave?" />
       <br>
       <input type="text" class="input-box"
-        placeholder="When do you want to leave?" />
+        placeholder="When do you want to return?" />
       <br>
       <button class="btn" ng-click="HDCtrl.doSearch()">Find</button>
     </form>

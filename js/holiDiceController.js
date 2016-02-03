@@ -2,7 +2,7 @@ holiDice.controller('HoliDiceController', ['FlightSearch', function(FlightSearch
   var self = this;
 
   self.startLocation = '';
-  self.holidayLocation = '';
+  self.holidayLocation = 'LAX';
 
 
   self.doSearch = function (){

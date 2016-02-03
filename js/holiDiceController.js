@@ -1,14 +1,17 @@
-holiDice.controller('HoliDiceController', ['FlightSearch','ResultsFactory', function(FlightSearch, ResultsFactory) {
+holiDice.controller('HoliDiceController', ['FlightSearch', 'RandomAirport',
+    'ResultsFactory', function(FlightSearch, RandomAirport, ResultsFactory) {
+
   var self = this;
 
   self.startLocation = '';
-  self.holidayLocation = 'LAX';
+  self.holidayLocation = '';
   self.depDate = '';
   self.returnDate = '';
 
-
   self.doSearch = function (){
-    FlightSearch.query(self.startLocation, self.holidayLocation, self.depDate, self.returnDate)
+    self.holidayLocation = RandomAirport.query();
+    FlightSearch.query(self.startLocation, self.holidayLocation,
+                       self.depDate, self.returnDate)
       .then(function(response) {
         self.flightResults = response.data.trips;
         self.outboundName = ResultsFactory.outboundName(self.flightResults);
@@ -20,5 +23,4 @@ holiDice.controller('HoliDiceController', ['FlightSearch','ResultsFactory', func
         console.log(response);
       });
   };
-
 }]);

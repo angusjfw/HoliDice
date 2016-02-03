@@ -2,7 +2,7 @@ describe('factory: FlightSearch', function() {
   describe('#query', function() {
     var flightSearch, httpBackend;
     var queryUrl = 'https://www.googleapis.com/qpxExpress/v1/trips/search\?key\=';
-    var apiKey = 'AIzaSyDDdyHFQrTHYRGlfZGNqOnR6vC9PkdKFpQ';
+    var apiKey = googleAPIKey;
     var expectedResult = {
       "origin": "LHR",
       "destination": "BOS",

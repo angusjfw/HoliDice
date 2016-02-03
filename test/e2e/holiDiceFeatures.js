@@ -21,4 +21,9 @@ describe('HoliDice', function() {
     searchButton.click();
     expect(flightResults.first().getText()).toEqual();
   });
+
+  it('suggested destination is randomised', function() {
+    spyOn(Math, 'random').and.returnValue(0);
+    expect(flightResults.getText()).toInclude("UTK");
+  });
 });

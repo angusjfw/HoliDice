@@ -1,17 +1,17 @@
 holiDice.factory('FlightSearch', ['$http', function($http) {
-  var queryUrl = 'https://www.googleapis.com/qpxExpress/v1/trips/search\?key\=';
-  var apiKey = 'AIzaSyDDdyHFQrTHYRGlfZGNqOnR6vC9PkdKFpQ';
+  var queryUrl = 'https://www.googleapis.com/qpxExpress/v1/trips/search?key=';
+  var apiKey = 'AIzaSyB3fv8tKKcTkkqBmZf-r5TY4EmwZzNYW-E';
 
   return {
-    query: function(startingLocation, holidayLocation) {
+    query: function(startLocation, holidayLocation) {
       return $http.post(
         queryUrl + apiKey,
         {
           "request": {
             "slice": [
               {
-                "origin": "BOS",
-                "destination": "LAX",
+                "origin": startLocation,
+                "destination": holidayLocation,
                 "date": "2016-02-10",
                 "maxConnectionDuration": 0
               }

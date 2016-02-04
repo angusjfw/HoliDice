@@ -8,6 +8,10 @@ body {
  background-size: cover;
 }
 
+h1 {
+    font-size: 5em;
+    color: #2f4f4f
+}
 
 .input-box {
   width: 20%;
@@ -38,4 +42,8 @@ body {
   width: 80%;
   text-align: left;
 
+}
+
+#logo {
+  font-family: kankin;
 }

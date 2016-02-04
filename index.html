@@ -43,14 +43,14 @@
       <button class="btn btn-primary" ng-click="HDCtrl.doSearch()">Find</button>
     </form>
     <div class="loading" ng-show="HDCtrl.loading">
-      <img src="http://www.animatedimages.org/data/media/710/animated-dice-image-0004.gif" alt="dice gif" /><br>
+      <img src="http://www.animatedimages.org/data/media/710/animated-dice-image-0004.gif" alt="dice gif" width="100" /><br>
       Loading...
     </div>
     <div class="all-results" ng-show="HDCtrl.validate">
       <div class="journey-results">
-      <p data-ng-bind="HDCtrl.outboundName"></p>
+      <h4 data-ng-bind="HDCtrl.outboundName"></h4>
       <p>To:</p>
-      <p data-ng-bind="HDCtrl.inboundName"></p>
+      <h4 data-ng-bind="HDCtrl.inboundName"></h4>
       </div>
       <br>
       <div class="journey-details">
@@ -60,5 +60,6 @@
       <p>Departure Time: <span data-ng-bind="HDCtrl.departureTime"></span></p>
       </div>
     </div>
+
   </body>
 </html>

@@ -11,6 +11,7 @@ holiDice.controller('HoliDiceController', ['FlightSearch', 'RandomAirport',
   self.validate = false;
   self.loading = false;
 
+
   self.doSearch = function (){
     self.loading = true;
     self.validate = false;

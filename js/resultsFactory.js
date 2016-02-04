@@ -54,5 +54,11 @@ holiDice.factory('ResultsFactory', [function() {
     else { return iata; }
   };
 
+  factory.buyURL = function(startLocation, holidayLocation, depDate, returnDate) {
+    var dates = depDate.replace(/-/g, '').substring(2) +
+      '/' + returnDate.replace(/-/g, '').substring(2);
+    return '/' + startLocation + '/' + holidayLocation + '/' + dates;
+  };
+
   return factory;
 }]);

@@ -1,4 +1,5 @@
 holiDice.factory('ResultsFactory', [function() {
+
   var factory = {};
 
   factory.validate = function(flightResults) {
@@ -14,7 +15,8 @@ holiDice.factory('ResultsFactory', [function() {
   };
 
   factory.inboundName = function(flightResults) {
-    var iata = flightResults.tripOption[0].slice[0].segment[0].leg[0].destination;
+    var legs = flightResults.tripOption[0].slice[0].segment[0].leg;
+    var iata = legs[legs.length - 1].destination;
     return factory.nameFromIata(factory.airports(flightResults), iata);
   };
 

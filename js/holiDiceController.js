@@ -8,8 +8,12 @@ holiDice.controller('HoliDiceController', ['FlightSearch', 'RandomAirport',
   self.holidayLocation = '';
   self.depDate = '';
   self.returnDate = '';
+  self.validate = false;
+  self.loading = false;
 
   self.doSearch = function (){
+    self.loading = true;
+    self.validate = false;
     self.holidayLocation = RandomAirport.query();
 
     FlightSearch.query(self.startLocation, self.holidayLocation,
@@ -23,7 +27,8 @@ holiDice.controller('HoliDiceController', ['FlightSearch', 'RandomAirport',
           self.holidayLocation = "LHR";
           self.doSearch();
         } else {
-          self.validate = ResultsFactory.validate(self.flightResults);
+          self.loading = false;
+          self.validate = true;
           self.outboundName = ResultsFactory.outboundName(self.flightResults);
           self.inboundName = ResultsFactory.inboundName(self.flightResults);
           self.price = ResultsFactory.price(self.flightResults);

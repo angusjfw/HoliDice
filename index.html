@@ -59,6 +59,12 @@
       <p>Price: <span data-ng-bind="HDCtrl.price"></span></p>
       <p>Departure Time: <span data-ng-bind="HDCtrl.departureTime"></span></p>
       </div>
+
+      <!-- <form action="https://skyscanner.net/transport/flights/"{{HDCtrl.startLocation}}/{{HDCtrl.holidayLocation}}/>
+        <input type="submit" name="name" value="buy">
+      </form> -->
+
+      <a ng-href="http://skyscanner.net/transport/flights/{{HDCtrl.startLocation}}/{{HDCtrl.holidayLocation}}">Buy</a>
     </div>
 
   </body>

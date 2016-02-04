@@ -1,9 +1,36 @@
 body {
   text-align: center;
   font-family: futura, sans-serif;
+  background: url("./images/bg.JPG") no-repeat center center fixed;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
 }
 
 .input-box {
   width: 20%;
-  font-family: futura, sans-serif;
+  font-family: futura;
+  margin: 0.3%;
+}
+
+.all-results {
+  font-family: futura;
+  margin: auto;
+  margin-top: 1%;
+  width: 30%;
+  padding: 10px;
+  background-color: rgba(255,255,255,0.85);
+  }
+
+.journey-results {
+  border-bottom: #d3d3d3;
+  border-bottom-style: solid;
+}
+
+.journey-details {
+  margin:0 auto;
+  width: 80%;
+  text-align: left;
+
 }

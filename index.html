@@ -30,27 +30,31 @@
       <br>
 
       <datepicker date-format="yyyy-MM-dd">
-        <input type="text" class="input-box" ng-model="HDCtrl.depDate" 
+        <input type="text" class="input-box" ng-model="HDCtrl.depDate"
         placeholder="When do you want to leave?" />
       </datepicker>
       <br>
       <datepicker date-format="yyyy-MM-dd">
-        <input type="text" class="input-box" ng-model="HDCtrl.returnDate" 
+        <input type="text" class="input-box" ng-model="HDCtrl.returnDate"
         placeholder="When do you want to return?" />
       </datepicker>
       <br>
 
-      <button class="btn" ng-click="HDCtrl.doSearch()">Find</button>
+      <button class="btn btn-primary" ng-click="HDCtrl.doSearch()">Find</button>
     </form>
     <div class="all-results" ng-show="HDCtrl.validate">
+      <div class="journey-results">
       <p data-ng-bind="HDCtrl.outboundName"></p>
       <p>To:</p>
       <p data-ng-bind="HDCtrl.inboundName"></p>
+      </div>
       <br>
+      <div class="journey-details">
       <p>Carrier: <span data-ng-bind="HDCtrl.carrierName"></span></p>
       <p>Flight Number: <span data-ng-bind="HDCtrl.flightNumber"></span></p>
       <p>Price: <span data-ng-bind="HDCtrl.price"></span></p>
       <p>Departure Time: <span data-ng-bind="HDCtrl.departureTime"></span></p>
+      </div>
     </div>
   </body>
 </html>

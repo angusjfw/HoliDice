@@ -1,12 +1,8 @@
 holiDice.factory('ResultsFactory', [function() {
-
   var factory = {};
 
   factory.validate = function(flightResults) {
-    if(typeof flightResults.tripOption == "undefined" ) {
-      return false;
-    }
-    else { return true; }
+    return (flightResults.tripOption !== undefined);
   };
 
   factory.outboundName = function(flightResults) {
@@ -31,8 +27,8 @@ holiDice.factory('ResultsFactory', [function() {
   };
 
   factory.departureTime = function(flightResults) {
-    var date = flightResults.tripOption[0].slice[0].segment[0].leg[0].departureTime;
-    return new Date(date).toUTCString();
+    var firstLeg = flightResults.tripOption[0].slice[0].segment[0].leg[0];
+    return new Date(firstLeg.departureTime).toUTCString();
   };
 
   factory.carrierName = function(flightResults) {
@@ -44,20 +40,17 @@ holiDice.factory('ResultsFactory', [function() {
   };
 
   factory.nameFromIata = function(airports, iata) {
-    var match;
-    airports.forEach(function(airport) {
-      if (airport.code === iata) {
-        match = airport.name;
-      }
+    var airport = airports.filter(function(airport) {
+      return airport.code === iata;
     });
-    if (match) { return match; }
-    else { return iata; }
+    return airport[0] !== undefined ? airport[0].name : iata;
   };
 
-  factory.buyURL = function(startLocation, holidayLocation, depDate, returnDate) {
-    var dates = depDate.replace(/-/g, '').substring(2) +
-      '/' + returnDate.replace(/-/g, '').substring(2);
-    return '/' + startLocation + '/' + holidayLocation + '/' + dates;
+  factory.buyURL = function(startLocation, holidayLocation,
+                            depDate, returnDate) {
+    return('/' + startLocation + '/' + holidayLocation + '/' +
+           depDate.replace(/-/g, '').substring(2) + '/' +
+           returnDate.replace(/-/g, '').substring(2));
   };
 
   return factory;

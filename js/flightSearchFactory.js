@@ -2,7 +2,6 @@ holiDice.factory('FlightSearch', ['$http', function($http) {
   var queryUrl = 'https://www.googleapis.com/qpxExpress/v1/trips/search?key=';
   var apiKey = googleAPIKey;
 
-
   return {
     query: function(startLocation, holidayLocation, depDate, returnDate) {
       return $http.post(

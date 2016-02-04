@@ -11,28 +11,27 @@ holiDice.controller('HoliDiceController', ['FlightSearch', 'RandomAirport',
 
   self.doSearch = function (){
     self.holidayLocation = RandomAirport.query();
+
     FlightSearch.query(self.startLocation, self.holidayLocation,
-                       self.depDate, self.returnDate)
+        self.depDate, self.returnDate)
       .then(function(response) {
         self.flightResults = response.data.trips;
         if (ResultsFactory.validate(self.flightResults) === false && count < 5) {
           count += 1;
-          self.doSearch()
-          console.log('failed')
+          self.doSearch();
         } else if (count === 5) {
           self.holidayLocation = "LHR";
-          self.doSearch()
+          self.doSearch();
         } else {
-        self.validate = ResultsFactory.validate(self.flightResults);
-        self.outboundName = ResultsFactory.outboundName(self.flightResults);
-        self.inboundName = ResultsFactory.inboundName(self.flightResults);
-        self.price = ResultsFactory.price(self.flightResults);
-        self.flightNumber = ResultsFactory.flightNumber(self.flightResults);
-        self.departureTime = ResultsFactory.departureTime(self.flightResults);
-        self.carrierName = ResultsFactory.carrierName(self.flightResults);
-        console.log(response);
-        count = 0;
-      }
+          self.validate = ResultsFactory.validate(self.flightResults);
+          self.outboundName = ResultsFactory.outboundName(self.flightResults);
+          self.inboundName = ResultsFactory.inboundName(self.flightResults);
+          self.price = ResultsFactory.price(self.flightResults);
+          self.flightNumber = ResultsFactory.flightNumber(self.flightResults);
+          self.departureTime = ResultsFactory.departureTime(self.flightResults);
+          self.carrierName = ResultsFactory.carrierName(self.flightResults);
+          count = 0;
+        }
       });
   };
 }]);

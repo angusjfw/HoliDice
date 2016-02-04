@@ -25,6 +25,7 @@
   </head>
 
   <body ng-controller="HoliDiceController as HDCtrl">
+    <div id="content">
     <h1 id="logo">HoliDice</h1>
 
     <form class="form-horizontal" id="input-form">
@@ -66,8 +67,9 @@
       <p>Departure Time: <span data-ng-bind="HDCtrl.departureTime"></span></p>
       </div>
 
-      <a class="btn btn-primary" ng-href="http://skyscanner.net/transport/flights/{{HDCtrl.buyURL}}">Book Now</a>
+      <a class="btn btn-primary" ng-href="http://skyscanner.net/transport/flights/{{HDCtrl.buyURL}}">Compare & Book</a>
     </div>
 
+    </div>
   </body>
 </html>

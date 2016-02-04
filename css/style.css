@@ -13,6 +13,10 @@ body {
  background-size: cover;
 }
 
+#content {
+  margin-top: 10%;
+}
+
 h1 {
     font-size: 5em;
     color: #2f4f4f

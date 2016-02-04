@@ -1,5 +1,5 @@
 $(function() {
-  $( "#tags" ).autocomplete({
+  $( "#origin" ).autocomplete({
     source: airportIATAs
   });
 });

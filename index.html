@@ -42,6 +42,10 @@
 
       <button class="btn btn-primary" ng-click="HDCtrl.doSearch()">Find</button>
     </form>
+    <div class="loading" ng-show="HDCtrl.loading">
+      <img src="http://www.animatedimages.org/data/media/710/animated-dice-image-0004.gif" alt="dice gif" /><br>
+      Loading...
+    </div>
     <div class="all-results" ng-show="HDCtrl.validate">
       <div class="journey-results">
       <p data-ng-bind="HDCtrl.outboundName"></p>

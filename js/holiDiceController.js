@@ -2,6 +2,7 @@ holiDice.controller('HoliDiceController', ['FlightSearch', 'RandomAirport',
     'ResultsFactory', function(FlightSearch, RandomAirport, ResultsFactory) {
 
   var self = this;
+  var count = 0;
 
   self.startLocation = '';
   self.holidayLocation = '';
@@ -14,6 +15,15 @@ holiDice.controller('HoliDiceController', ['FlightSearch', 'RandomAirport',
                        self.depDate, self.returnDate)
       .then(function(response) {
         self.flightResults = response.data.trips;
+        if (ResultsFactory.validate(self.flightResults) === false && count < 5) {
+          count += 1;
+          self.doSearch()
+          console.log('failed')
+        } else if (count === 5) {
+          self.holidayLocation = "LHR";
+          self.doSearch()
+        } else {
+        self.validate = ResultsFactory.validate(self.flightResults);
         self.outboundName = ResultsFactory.outboundName(self.flightResults);
         self.inboundName = ResultsFactory.inboundName(self.flightResults);
         self.price = ResultsFactory.price(self.flightResults);
@@ -21,6 +31,8 @@ holiDice.controller('HoliDiceController', ['FlightSearch', 'RandomAirport',
         self.departureTime = ResultsFactory.departureTime(self.flightResults);
         self.carrierName = ResultsFactory.carrierName(self.flightResults);
         console.log(response);
+        count = 0;
+      }
       });
   };
 }]);

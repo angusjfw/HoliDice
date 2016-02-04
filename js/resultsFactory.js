@@ -2,12 +2,11 @@ holiDice.factory('ResultsFactory', [function() {
   var factory = {};
 
   factory.outboundName = function(flightResults){
-    return flightResults.data.airport[0].name
-
+    return flightResults.tripOption[0].slice[0].segment[0].leg[0].origin
   };
 
   factory.inboundName = function(flightResults){
-    return flightResults.data.airport[1].name
+    return flightResults.tripOption[0].slice[0].segment[0].leg[0].destination
   };
 
   factory.price = function(flightResults){
@@ -26,9 +25,13 @@ holiDice.factory('ResultsFactory', [function() {
     return flightResults.data.carrier[0].name
   };
 
-  factory.returnTime = function(){
-
+  factory.validate = function(flightResults) {
+    if(typeof flightResults.tripOption == "undefined" ){
+      return false
+    }
+    else {return true}
   };
+
 
 return factory;
 }]);

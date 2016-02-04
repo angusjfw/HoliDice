@@ -18,10 +18,14 @@ body {
   font-family: futura;
   margin: auto;
   margin-top: 1%;
-  width: 30%;
+  width: 35%;
   padding: 10px;
   background-color: rgba(255,255,255,0.85);
-  }
+}
+
+.all-results span {
+    color: #337ab7;
+}
 
 .journey-results {
   border-bottom: #d3d3d3;

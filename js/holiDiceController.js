@@ -23,6 +23,7 @@ holiDice.controller('HoliDiceController', ['FlightSearch', 'RandomAirport',
           self.holidayLocation = "LHR";
           self.doSearch()
         } else {
+        self.validate = ResultsFactory.validate(self.flightResults);
         self.outboundName = ResultsFactory.outboundName(self.flightResults);
         self.inboundName = ResultsFactory.inboundName(self.flightResults);
         self.price = ResultsFactory.price(self.flightResults);

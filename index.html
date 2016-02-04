@@ -37,14 +37,15 @@
       <br>
       <button class="btn" ng-click="HDCtrl.doSearch()">Find</button>
     </form>
-
-    <p data-ng-bind="HDCtrl.outboundName"></p>
-    <p>To:</p>
-    <p data-ng-bind="HDCtrl.inboundName"></p>
-    <br>
-    <p>Carrier: <span data-ng-bind="HDCtrl.carrierName"></span></p>
-    <p>Flight Number: <span data-ng-bind="HDCtrl.flightNumber"></span></p>
-    <p>Price: <span data-ng-bind="HDCtrl.price"></span></p>
-    <p>Departure Time: <span data-ng-bind="HDCtrl.departureTime"></span></p>
+    <div class="all-results" ng-show="HDCtrl.validate">
+      <p data-ng-bind="HDCtrl.outboundName"></p>
+      <p>To:</p>
+      <p data-ng-bind="HDCtrl.inboundName"></p>
+      <br>
+      <p>Carrier: <span data-ng-bind="HDCtrl.carrierName"></span></p>
+      <p>Flight Number: <span data-ng-bind="HDCtrl.flightNumber"></span></p>
+      <p>Price: <span data-ng-bind="HDCtrl.price"></span></p>
+      <p>Departure Time: <span data-ng-bind="HDCtrl.departureTime"></span></p>
+    </div>
   </body>
 </html>

@@ -11,12 +11,12 @@ holiDice.factory('FlightSearch', ['$http', function($http) {
             "slice": [
               {
                 "origin": startLocation,
-                "destination": "LAX",
+                "destination": holidayLocation,
                 "date": depDate,
                 "maxConnectionDuration": 0
               },
               {
-                "origin": "LAX",
+                "origin": holidayLocation,
                 "destination": startLocation,
                 "date": returnDate,
                 "maxConnectionDuration": 0

@@ -10,6 +10,7 @@ holiDice.controller('HoliDiceController', ['FlightSearch', 'RandomAirport',
 
   self.doSearch = function (){
     self.holidayLocation = RandomAirport.query();
+
     FlightSearch.query(self.startLocation, self.holidayLocation,
                        self.depDate, self.returnDate)
       .then(function(response) {
@@ -20,7 +21,6 @@ holiDice.controller('HoliDiceController', ['FlightSearch', 'RandomAirport',
         self.flightNumber = ResultsFactory.flightNumber(self.flightResults);
         self.departureTime = ResultsFactory.departureTime(self.flightResults);
         self.carrierName = ResultsFactory.carrierName(self.flightResults);
-        console.log(response);
       });
   };
 }]);

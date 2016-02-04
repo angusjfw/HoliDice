@@ -1,1 +1,1 @@
-var googleAPIKey = 'AIzaSyB3fv8tKKcTkkqBmZf-r5TY4EmwZzNYW-E';
+var googleAPIKey = 'AIzaSyDvlqJi1jkrfAGeu_k1Wi8p8ipjLWpxMGY';

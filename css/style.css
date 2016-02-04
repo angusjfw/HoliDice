@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Kankin";
+  src: url(../fonts/kankin/Kankin.ttf) format("truetype");
+}
+
 body {
   text-align: center;
   font-family: futura, sans-serif;
@@ -45,5 +50,5 @@ h1 {
 }
 
 #logo {
-  font-family: kankin;
+  font-family: 'Kankin', 'Futura', 'Arial';
 }

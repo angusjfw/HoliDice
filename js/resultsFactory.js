@@ -15,8 +15,8 @@ holiDice.factory('ResultsFactory', [function() {
   };
 
   factory.inboundName = function(flightResults) {
-    var legs = flightResults.tripOption[0].slice[0].segment[0].leg;
-    var iata = legs[legs.length - 1].destination;
+    var segs = flightResults.tripOption[0].slice[0].segment;
+    var iata = segs[segs.length - 1].leg[0].destination;
     return factory.nameFromIata(factory.airports(flightResults), iata);
   };
 

@@ -37,6 +37,8 @@ holiDice.controller('HoliDiceController', ['FlightSearch', 'RandomAirport',
           self.departureTime = ResultsFactory.departureTime(self.flightResults);
           self.carrierName = ResultsFactory.carrierName(self.flightResults);
           count = 0;
+          console.log(response);
+          console.log(self.holidayLocation);
         }
       });
   };

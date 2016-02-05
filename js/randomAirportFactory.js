@@ -1,9 +1,9 @@
 holiDice.factory('RandomAirport', [function() {
   return {
     query: function() {
-      return airportIATAs[
-        Math.floor(Math.random() * airportIATAs.length)
-      ];
+      return allAirports[
+        Math.floor(Math.random() * allAirports.length)
+      ].iata;
     }
   };
 }]);

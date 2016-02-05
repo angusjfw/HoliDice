@@ -13,7 +13,11 @@ holiDice.factory('ResultsFactory', [function() {
   factory.inboundName = function(flightResults) {
     var segs = flightResults.tripOption[0].slice[0].segment;
     var iata = segs[segs.length - 1].leg[0].destination;
-    return factory.nameFromIata(factory.airports(flightResults), iata);
+    var airport = factory.nameFromIata(factory.airports(flightResults), iata);
+    var inboundCountry = allAirports.filter(function(airport) {
+      return airport.iata === iata;
+    })[0].country;
+    return airport + ', ' + inboundCountry;
   };
 
   factory.price = function(flightResults) {

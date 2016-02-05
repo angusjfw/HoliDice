@@ -15,6 +15,9 @@ module.exports = function(config) {
       'bower_components/angular/angular.js',
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/angularjs-datepicker/src/js/angular-datepicker.js',
+      'bower_components/jquery/dist/jquery.js',
+      'bower_components/jquery-ui/jquery-ui.js',
       'js/**/*.js',
       'test/**/*.spec.js'
     ],

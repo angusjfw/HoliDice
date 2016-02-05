@@ -1,5 +1,5 @@
 $(function() {
   $( "#origin" ).autocomplete({
-    source: airportIATAs
+    source: allAirports.map(function(airport) { return airport.iata; })
   });
 });

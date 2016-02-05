@@ -28,6 +28,7 @@ holiDice.factory('FlightSearch', ['$http', function($http) {
   };
 
   factory.callAPI = function(startLocation, holidayLocation, depDate, returnDate) {
+    console.log(holidayLocation);
     return $http.post(
         queryUrl + apiKey,
         {
@@ -62,7 +63,10 @@ holiDice.factory('FlightSearch', ['$http', function($http) {
   };
 
   factory.validate = function(results) {
-    return (results.tripOption !== undefined);
+    if (!results || !results.tripOption) {
+      return false;
+    }
+    else { return true; }
   };
 
   return factory;

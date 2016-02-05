@@ -6,9 +6,9 @@ describe('factory: FlightSearch', function() {
 
     var fakeRandomAirport = function() { return 'LAX'; };
     var expectedResult = {
-      "origin": "LHR",
-      "destination": "BOS",
-      "date": "2016-02-04"
+      "origin": "BOS",
+      "destination": "LAX",
+      "date": "2016-02-06"
     };
 
     beforeEach(module('HoliDice'));

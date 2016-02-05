@@ -1,18 +1,18 @@
 holiDice.factory('ResultsFactory', [function() {
   var factory = {};
 
-  factory.validate = function(flightResults) {
-    return (flightResults.tripOption !== undefined);
-  };
-
   factory.outboundName = function(flightResults) {
     var iata = flightResults.tripOption[0].slice[0].segment[0].leg[0].origin;
     return factory.nameFromIata(factory.airports(flightResults), iata);
   };
 
-  factory.inboundName = function(flightResults) {
+  factory.inboundIata = function(flightResults) {
     var segs = flightResults.tripOption[0].slice[0].segment;
-    var iata = segs[segs.length - 1].leg[0].destination;
+    return segs[segs.length - 1].leg[0].destination;
+  };
+
+  factory.inboundName = function(flightResults) {
+    var iata = factory.inboundIata(flightResults);
     var airport = factory.nameFromIata(factory.airports(flightResults), iata);
     var inboundCountry = allAirports.filter(function(airport) {
       return airport.iata === iata;

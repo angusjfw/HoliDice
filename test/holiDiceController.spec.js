@@ -14,13 +14,9 @@ describe('HoliDiceController', function() {
 
       var ctrl, fakeFlightSearch, scope;
       var fakeData = {
-        'data': {
-          'trips' : {
-            "origin": "LHR",
-            "destination": "BOS",
-            "date": "2016-02-04"
-          }
-        }
+        "origin": "LHR",
+        "destination": "BOS",
+        "date": "2016-02-04"
       };
 
       beforeEach(function(){
@@ -36,8 +32,9 @@ describe('HoliDiceController', function() {
 	  });
 
 	  fakeResultsFactory = jasmine.createSpyObj('resultsFactory', [
-            'outboundName', 'inboundName', 'price', 'flightNumber',
-            'departureTime', 'carrierName'
+            'outboundName', 'inboundIata', 'inboundName', 'price',
+            'flightNumber', 'departureTime', 'carrierName', 'airports',
+            'nameFromIata', 'buyURL'
           ]);
 	  $provide.factory('ResultsFactory', function(){
 	    return fakeResultsFactory;
@@ -48,7 +45,9 @@ describe('HoliDiceController', function() {
       beforeEach(inject(function ($q, $rootScope) {
         scope = $rootScope;
         fakeRandomAirport.query.and.returnValue("UTK");
-        fakeFlightSearch.query.and.returnValue($q.when(fakeData));
+        fakeFlightSearch.query.and.callFake(function(w, x, y, z, cb) {
+          cb(fakeData);
+        });
       }));
 
       beforeEach(inject(function($controller) {
@@ -59,7 +58,6 @@ describe('HoliDiceController', function() {
         ctrl.startingLocation = 'LHR';
         ctrl.doSearch();
         scope.$apply();
-        expect(fakeRandomAirport.query.calls.any()).toEqual(true);
         expect(ctrl.holidayLocation).toEqual("UTK");
       });
 
@@ -68,7 +66,7 @@ describe('HoliDiceController', function() {
         ctrl.doSearch();
         scope.$apply();
         expect(fakeFlightSearch.query.calls.any()).toEqual(true);
-        expect(ctrl.flightResults).toEqual(fakeData.data.trips);
+        expect(ctrl.flightResults).toEqual(fakeData);
       });
     });
   });

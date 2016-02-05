@@ -3,10 +3,12 @@ describe('factory: FlightSearch', function() {
     var flightSearch, httpBackend;
     var queryUrl = 'https://www.googleapis.com/qpxExpress/v1/trips/search\?key\=';
     var apiKey = googleAPIKey;
+
+    var fakeRandomAirport = function() { return 'LAX'; };
     var expectedResult = {
-      "origin": "LHR",
-      "destination": "BOS",
-      "date": "2016-02-04"
+      "origin": "BOS",
+      "destination": "LAX",
+      "date": "2016-02-06"
     };
 
     beforeEach(module('HoliDice'));
@@ -16,7 +18,11 @@ describe('factory: FlightSearch', function() {
       httpBackend = $httpBackend;
       httpBackend
         .expectPOST(queryUrl + apiKey)
-        .respond(expectedResult);
+        .respond({
+          'trips' : {
+            'tripOption' : expectedResult
+          }
+        });
     }));
 
     afterEach(function() {
@@ -25,10 +31,11 @@ describe('factory: FlightSearch', function() {
     });
 
     it('returns flight data', function() {
-      flightSearch.query('BOS', 'LAX')
-        .then(function(response) {
-          expect(response.data).toEqual(expectedResult);
-        });
+      flightSearch.query('BOS', fakeRandomAirport, '2016-02-06', '2016-02-13',
+          function(response) {
+            expect(response.tripOption).toEqual(expectedResult);
+          }
+      );
       httpBackend.flush();
     });
   });

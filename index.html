@@ -21,7 +21,8 @@
     <script src="js/resultsFactory.js"></script>
     <script src="js/randomAirportFactory.js"></script>
     <script src="js/airportSelection.js"></script>
-    <script src="js/autocomplete.js"></script>
+    <script src="js/autoCompleteFactory.js"></script>
+    <script src="js/autoCompleteDirective.js"></script>
   </head>
 
   <body ng-controller="HoliDiceController as HDCtrl">
@@ -30,8 +31,9 @@
 
     <form class="form-horizontal" id="input-form">
       <div class="ui-widget">
-        <input id="origin" class="input-box" ng-model="HDCtrl.startLocation"
-        placeholder="Where do you want to fly from?" />
+        <input type="text" id="origin" class="input-box"
+        placeholder="Where do you want to fly from?"
+        ng-model="HDCtrl.startLocation" auto-complete />
       </div>
 
       <datepicker date-format="yyyy-MM-dd">

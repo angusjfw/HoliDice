@@ -1,6 +1,6 @@
 holiDice.controller('HoliDiceController',
-    ['RandomAirport', 'FlightSearch', 'ResultsFactory',
-    function(RandomAirport, FlightSearch, ResultsFactory) {
+    ['RandomAirport', 'FlightSearch', 'ResultsFactory', 'AutoCompleteService',
+    function(RandomAirport, FlightSearch, ResultsFactory, AutoCompleteService) {
 
   var self = this;
 
@@ -10,13 +10,12 @@ holiDice.controller('HoliDiceController',
   self.validate = false;
   self.loading = false;
 
-
   self.doSearch = function (){
     self.validate = false;
     self.loading = true;
 
     FlightSearch.query(
-        self.startLocation,
+        AutoCompleteService.iataFromName(self.startLocation),
         RandomAirport.query,
         self.depDate,
         self.returnDate,
@@ -40,5 +39,11 @@ holiDice.controller('HoliDiceController',
     self.holidayLocation = ResultsFactory.inboundIata(self.flightResults);
     self.buyURL = ResultsFactory.buyURL(self.startLocation,
         self.holidayLocation, self.depDate, self.returnDate);
+  };
+
+  self.iataFromName = function(name) {
+    return allAirports.filter(function(airport) {
+      return airport.name === name;
+    })[0].iata;
   };
 }]);

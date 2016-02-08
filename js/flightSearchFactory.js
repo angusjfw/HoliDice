@@ -28,7 +28,7 @@ holiDice.factory('FlightSearch', ['$http', function($http) {
   };
 
   factory.callAPI = function(startLocation, holidayLocation, depDate, returnDate) {
-    console.log(holidayLocation);
+    console.log('Query: ', startLocation, holidayLocation, depDate, returnDate);
     return $http.post(
         queryUrl + apiKey,
         {
